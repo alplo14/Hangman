@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Universite Laval"/>
+    <title>Breakout Game in Dart</title>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/link.css"/>
+    <link rel="stylesheet" href="css/page.css"/>
+    <link rel="stylesheet" href="css/forms.css"/>
+  </head>
+
+  <body>
+    <header>
+      <h1>Learning Dart with the Famous Breakout Game</h1>
+    </header>
+    <section id="core">     
+      <section>
+      <canvas id="canvas" width="900" height="500"></canvas>
+        <footer>
+           <select id = "level">
+               <option value = "1">Easy</option>
+               <option value = "2">Medium</option>
+               <option value = "3">Expert</option>
+             </select>
+          <button id="play" class="buttonplay">Play game!</button>
+          <button id="reset" class="buttonreset">Reset</button><br><br>
+          <b>Timer: </b><input type="text" class="resultbox" name="clocktimer" id="clocktimer" size="12" required readonly="readonly"/>
+          <b>Best score: </b><input type="text" class="resultbox" name="besttime" id="besttime" size="8" required readonly="readonly"/>
+          <b>Balls left: </b><input type="text" class="resultbox" name="ballsleft" id="ballsleft" size="3" required readonly="readonly" text="3"/>
+        </footer>
+        <script type="application/dart" src="breakout.dart"></script>
+        <script src="packages/browser/dart.js"></script>
+      </section>
+      <section>
+      <br>
+        <header>
+          <h2>Where does Breakout comes from?</h2>
+        </header>
+        <p>
+         Breakout is an arcade game developed by Atari, Inc and introduced on May 13, 1976. 
+         It was conceptualized by Nolan Bushnell and Steve Bristow, and influenced by the 1972 
+         arcade game Pong, also by Atari. The game was ported to video game consoles and upgraded 
+         to video games such as Super Breakout. In addition, Breakout was the basis and inspiration 
+         for books, video games, film, and the Apple II personal computer. In the game, a layer 
+         of bricks lines the top third of the screen. <br><br>
+
+          A ball travels across the screen, bouncing off the top and side walls of the screen. 
+          When a brick is hit, the ball bounces away and the brick is destroyed. The player loses 
+          a turn when the ball touches the bottom of the screen. To prevent this from happening, 
+          the player has a movable paddle to bounce the ball upward, keeping it in play. The arcade
+          cabinet uses a black and white monitor. <br><br>
+          
+          However, the monitor has strips of colored cellophane placed over it so that the bricks
+          appear to be in color!<br><br> 
+          <b>References:</b><br>
+           <a href="http://en.wikipedia.org/wiki/Breakout_(video_game)" class="link">Breakout on Wikipedia</a>
+        
+        </p>
+          <section>
+      <b>Inspiration: </b><br>
+        <a href="http://www.dartlang.org/" class="link">Dart Language</a><br/>
+        <a href="http://ondart.me" class="link">Dzenan Ridjanovic Official Page</a><br/>
+        <a href="https://github.com/dzenanr/">Dzenan Ridjanovic GitHub</a><br/><br/>
+          </section>
+      </section>
+    </section>
+    <footer>
+      Authors: Alexie Plourde, Ndeye Coumba Mbengue and Maxime Fortier <br>
+      March and April 2013<br>
+      Université Laval
+    </footer>
+  </body>
+</html>
