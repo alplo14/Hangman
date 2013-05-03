@@ -1,4 +1,4 @@
-/*library hangman;
+library hangman;
 
 import 'dart:html';
 import 'dart:async';
@@ -17,7 +17,7 @@ void main() {
   // Get a reference to the canvas.
   CanvasElement canvas = document.query('#canvas');
   Board board = new Board(canvas);
-  var listeBarreEnBas = [];
+ /* var listeBarreEnBas = [];
   for (var i = 0; i < 10; i++) {
     listeBarreEnBas[i]=[];
     var positionX = 15;
@@ -26,7 +26,7 @@ void main() {
     print ("barre_en_bas");
     listeBarreEnBas[i]=[positionX, positionY]; //Garde en mémoire les barres-en-bas      
     positionX += 5;
-  }
+  }*/
 
 
 }
