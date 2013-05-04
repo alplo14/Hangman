@@ -56,7 +56,8 @@ class Board {
     document.query('#Lettres').innerHtml = '';
     //letters.innerHTML = '';
     for (var i = 0; i < 26; i++) {
-      HtmlElement  div = window.document.createElement('div');
+      //HtmlElement  div = window.document.createElement("div");
+      var div = new DivElement();
       //var div = document.createElement('div');
       div.style.cursor = 'pointer';
       div.id = 'test';
