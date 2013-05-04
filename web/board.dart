@@ -63,12 +63,46 @@ class Board {
       div.id = 'test';
       document.query('#test').innerHtml = abc[i];
       //div.innerHTML = abc[i];
-      document.query('#test').onClick = getLetter;
+      document.query('#test').onClick = getLetter();
       //div.onclick = getLetter;
       frag.appendChild(div);
     }
     letters.appendChild(frag);
     drawCanvas();
+  }
+  getLetter() {
+    checkLetter(this.innerHTML);
+    this.innerHTML = '&nbsp;';
+    this.style.cursor = 'default';
+    this.onclick = null;
+  }
+  checkLetter(letter) {
+    var placeholders = word.innerHTML,
+        wrongGuess = true;
+    // split the placeholders into an array
+    placeholders = placeholders.split('');
+    // loop through the array
+    for (var i = 0; i < wordLength; i++) {
+      // if the selected letter matches one in the word to guess,
+      // replace the underscore and increase the number of correct guesses
+      if (wordToGuess.charAt(i) == letter.toLowerCase()) {
+        placeholders[i] = letter;
+        wrongGuess = false;
+        correctGuesses++;
+        // redraw the canvas only if all letters have been guessed
+        if (correctGuesses == wordLength) {
+          drawCanvas();
+        }
+      }
+    }
+    // if the guess was incorrect, increment the number of bad
+    // guesses and redraw the canvas
+    if (wrongGuess) {
+      badGuesses++;
+      drawCanvas();
+    }
+    // convert the array to a string and display it again
+    word.innerHTML = placeholders.join('');
   }
 
   drawCanvas() {
@@ -163,7 +197,7 @@ class Board {
     var j = alea.nextInt(a.length);
     return a[j];
   }
-  
+ 
  /* void init(var listeMots) {
     
     //On choisit le mot
