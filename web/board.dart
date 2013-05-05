@@ -1,12 +1,14 @@
 part of hangman;
 
-var  wordToGuess;
-var  wordLength;
-var  badGuesses;
-var   correctGuesses;
+
 
 class Board {
 
+  var wordToGuess;
+  var wordLength;
+  var badGuesses;
+  var correctGuesses;
+  
   const num X = 0;
   const num Y = 0;
   //var length = listeMots.length;
@@ -53,7 +55,7 @@ class Board {
     document.query('#word').innerHtml = placeholders;
     //word.innerHTML = placeholders;
     // create an alphabet pad to select letters
-    document.query('#Lettres').innerHtml = '';
+    //document.query('#Lettres').innerHtml = '';
     //letters.innerHTML = '';
     for (var i = 0; i < 26; i++) {
       //HtmlElement  div = window.document.createElement("div");
@@ -63,15 +65,17 @@ class Board {
       div.id = 'test';
       document.query('#test').innerHtml = abc[i];
       //div.innerHTML = abc[i];
-      document.query('#test').onClick = getLetter();
+      //document.query('#test').onClick = getLetter(abc[i]);
       //div.onclick = getLetter;
-      frag.appendChild(div);
+      //frag.appendChild(div);
     }
     letters.appendChild(frag);
     drawCanvas();
   }
-  getLetter() {
-    checkLetter(this.innerHTML);
+  getLetter(letter) {
+    checkLetter(letter); /*Pour savoir c'est quelle lettre, il faut savoir où la personne 
+    a cliqué. "This" fait référence à board, et non à l'événement "click".  */
+    
     this.innerHTML = '&nbsp;';
     this.style.cursor = 'default';
     this.onclick = null;

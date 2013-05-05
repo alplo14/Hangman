@@ -26,4 +26,3 @@ void main() {
  var   correctGuesses;*/
   Board board = new Board(canvas);
 }
-

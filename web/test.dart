@@ -1,32 +1,54 @@
-library hangman;
+part of hangman;
 
-import 'dart:html';
-import 'dart:async';
-import 'dart:math';
-
-part 'board.dart';
-//part 'liste_mots.dart';
-part 'barreEnBas.dart';
-//part 'test.dart';*/
-
-
-// See the style guide: http://www.dartlang.org/articles/style-guide/.
-
-
-void main() {
-  // Get a reference to the canvas.
-  CanvasElement canvas = document.query('#canvas');
-  Board board = new Board(canvas);
- /* var listeBarreEnBas = [];
-  for (var i = 0; i < 10; i++) {
-    listeBarreEnBas[i]=[];
-    var positionX = 15;
-    var positionY = 100;
-    var barre_en_bas = new BarreEnBas (canvas, positionX, positionY, positionX + 15, positionY +2);
-    print ("barre_en_bas");
-    listeBarreEnBas[i]=[positionX, positionY]; //Garde en mémoire les barres-en-bas      
-    positionX += 5;
-  }*/
-
-
-}
+class Board {
+  
+  const num X = 0;
+  const num Y = 0;
+  var badGuesses;
+  var correctGuesses;
+  var positionX = 15;
+  var positionY = 100;
+  
+  Timer timer;
+  
+  CanvasElement canvas;
+  CanvasRenderingContext2D context;
+  
+  num width;
+  num height;
+  
+  Board(this.canvas){
+    context = canvas.getContext("2d");
+    width = canvas.width;
+    height = canvas.height;
+    
+    document.query('#play').onClick.listen((e){
+     init(); 
+    }  
+    );
+    
+  }
+  
+  void init(){
+    
+    var listeMots = ["lapin", "canard", "cochon", "poule", "vache", "boeuf", "orignal", "hamster", "perruche", "serpent", "tortue", "hirondelle"];
+    var lengthListe = listeMots.length;
+    
+    //On choisit le mot
+    var rand = new Random();
+    var j = rand.nextInt(lengthListe);
+    var mot = listeMots[j].split("");
+    var lengthMot = mot.length;
+    var listeBarreEnBas = new List(lengthMot);
+    
+    //creates a row of underscores the same length as letters to guess
+    
+    for (var i =0; i<lengthMot; i++){
+      //listeBarreEnBas.add=[];
+      listeBarreEnBas[i]=[positionX, positionY]; //Garde en mémoire les barres-en-bas
+      positionX += 5;      
+    }
+    
+    /*var timer = new Timer.periodic(const Duration(milliseconds: 10),
+        (t) => redraw());*/
+  }}
