@@ -41,7 +41,7 @@ class Board {
     });
   }
   newGame() {
-    var placeholders = '',
+     var placeholders = '',
         frag = document.createDocumentFragment();
      var abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     badGuesses = 0;
@@ -57,19 +57,31 @@ class Board {
     // create an alphabet pad to select letters
     //document.query('#Lettres').innerHtml = '';
     //letters.innerHTML = '';
-    for (var i = 0; i < 26; i++) {
+    /*for (var i = 0; i < 26; i++) {
       //HtmlElement  div = window.document.createElement("div");
       var div = new DivElement();
       //var div = document.createElement('div');
       div.style.cursor = 'pointer';
       div.id = 'test';
-      document.query('#test').innerHtml = abc[i];
+      //document.query('#test').innerHtml = abc[i];
       //div.innerHTML = abc[i];
-      //document.query('#test').onClick = getLetter(abc[i]);
+      //document.query('#test').onClick = getLetter();
       //div.onclick = getLetter;
       //frag.appendChild(div);
+    }*/
+    
+
+    //la partie ci-haut n'est plus nécessaire, puisque les boutons sont dans le html. sinon les boutons n'apparaissaient pas correctement dans la zone de jeu, et je crois que ce sera plus facile à gérer comme ça.
+    while(correctGuesses!= wordLength && badGuesses<=7){ //tant que la partie n'est pas perdue ou gagnée
+      document.query('#a').onClick.listen((e){
+        getLetter(a);
+      });
+      document.query('#b').onClick.listen((e){
+       getLetter(b);
+      }); //etc.}
+    /* document.query('#test').onClick = getLetter(); */ 
+    //letters.appendChild(frag);
     }
-    letters.appendChild(frag);
     drawCanvas();
   }
   getLetter(letter) {
@@ -201,6 +213,8 @@ class Board {
     var j = alea.nextInt(a.length);
     return a[j];
   }
+  
+}
  
  /* void init(var listeMots) {
     
@@ -330,4 +344,3 @@ class Board {
   } */
   
   
-}
