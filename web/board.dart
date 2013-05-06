@@ -9,6 +9,9 @@ class Board {
   var badGuesses;
   var correctGuesses;
   var lettresUtilisees;
+  var lettreMinuscule;
+  var abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  var placeholders;
   
   const num X = 0;
   const num Y = 0;
@@ -45,7 +48,7 @@ class Board {
   newGame() {
      var placeholders = '',
         frag = document.createDocumentFragment();
-     var abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+     
     badGuesses = 0;
     correctGuesses = 0;
     wordToGuess = getWord();
@@ -79,146 +82,147 @@ class Board {
     
     /* document.query('#test').onClick = getLetter(); */ 
     //letters.appendChild(frag);
-    catchLetter(placeholders);
+    catchLetter(placeholders, lettreMinuscule);
 
   }
   
-  catchLetter(placeholders){
+  catchLetter(placeholders, lettreMinuscule){
     if(correctGuesses!= wordLength && badGuesses<=7){ //tant que la partie n'est pas perdue ou gagnée
       document.query('#a').onClick.listen((e){
         var lettre = "a";
+        //print (placeholders);
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#b').onClick.listen((e){
         var lettre = "b";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#c').onClick.listen((e){
         var lettre = "c";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#d').onClick.listen((e){
         var lettre = "d";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#d').onClick.listen((e){
         var lettre = "d";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#e').onClick.listen((e){
         var lettre = "e";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#f').onClick.listen((e){
         var lettre = "f";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#g').onClick.listen((e){
         var lettre = "g";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#h').onClick.listen((e){
         var lettre = "h";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#i').onClick.listen((e){
         var lettre = "i";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#j').onClick.listen((e){
         var lettre = "j";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#k').onClick.listen((e){
         var lettre = "k";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#l').onClick.listen((e){
         var lettre = "l";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#m').onClick.listen((e){
         var lettre = "m";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#n').onClick.listen((e){
         var lettre = "n";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#o').onClick.listen((e){
         var lettre = "o";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#p').onClick.listen((e){
         var lettre = "p";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#q').onClick.listen((e){
         var lettre = "q";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#r').onClick.listen((e){
         var lettre = "r";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#s').onClick.listen((e){
         var lettre = "s";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#t').onClick.listen((e){
         var lettre = "t";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#u').onClick.listen((e){
         var lettre = "u";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#v').onClick.listen((e){
         var lettre = "v";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#w').onClick.listen((e){
         var lettre = "w";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#x').onClick.listen((e){
         var lettre = "x";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#y').onClick.listen((e){
         var lettre = "y";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
       document.query('#z').onClick.listen((e){
         var lettre = "z";
         checkLetter(lettre, placeholders);
-        drawCanvas();
+        drawCanvas(lettresUtilisees, lettreMinuscule);
       });
     }
   }
@@ -236,33 +240,38 @@ class Board {
     //var placeholders = document.query('#word').innerHTML,
     var lettreMinuscule = letter.toLowerCase();
     var wrongGuess = true;
+    print (placeholders);
     // split the placeholders into an array
     var placeholdersList = placeholders.split(' ');
+    print (placeholdersList);
     var letterFromWord =wordToGuess.split(''); 
     // loop through the array
-    for (var i = 0; i < wordLength; i++) {
-      var lettre = letterFromWord[i];
-      // if the selected letter matches one in the word to guess,
-      // replace the underscore and increase the number of correct guesses
-      if (lettre == letter.toLowerCase()) {
-        placeholdersList[i] = "$letter ";
-        placeholders ='';
-        for (var i=0; i<placeholdersList.length; i++){
-          var symbol = placeholdersList[i];
-          placeholders = "$placeholders $symbol";
+    if (!lettresUtilisees.contains(lettreMinuscule)){
+      for (var i = 0; i < wordLength; i++) {
+        var lettreDevinee = letterFromWord[i];
+        // if the selected letter matches one in the word to guess,
+       // replace the underscore and increase the number of correct guesses
+        if (lettreDevinee == letter.toLowerCase()) {
+          placeholdersList[i] = "$letter ";
+          placeholders ='';
+         for (var i=0; i<placeholdersList.length; i++){
+            var symbol = placeholdersList[i];
+            placeholders = "$placeholders $symbol";
+          }
+          wrongGuess = false;
+          correctGuesses++;
+          lettresUtilisees[i]=lettreMinuscule;
+          //enleve la lettre des lettres acceptées.
+          lettreDevinee = 0; 
+          // redraw the canvas only if all letters have been guessed
+          if (correctGuesses == wordLength) {
+            //return placeholders;
+            drawCanvas(lettresUtilisees, lettreMinuscule);
+          }
         }
-        wrongGuess = false;
-        correctGuesses++;
-        lettresUtilisees[i]=lettreMinuscule;
-        print (placeholders);
-        //enleve la lettre des lettres acceptées.
-        lettre = 0; 
-        // redraw the canvas only if all letters have been guessed
-        if (correctGuesses == wordLength) {
-          drawCanvas();
-        }
-      }
+     }
     }
+    print (placeholders);
     document.query('#word').innerHtml = placeholders;
     // if the guess was incorrect, increment the number of bad
     // guesses and redraw the canvas
@@ -274,14 +283,19 @@ class Board {
           break;
         }
       }
-    drawCanvas();
+   // return placeholders;
+    
+    drawCanvas(lettresUtilisees, lettreMinuscule);
     }
+    //print (placeholders);
+    //return placeholders;
     // convert the array to a string and display it again
     //word.innerHTML = placeholdersList.join('');
   }
   
 
-  drawCanvas() {
+  drawCanvas(lettresUtilisees, lettreMinuscule) {
+    
     var c = canvas.getContext('2d');
     // reset the canvas and set basic styles
     canvas.width = canvas.width;
@@ -292,64 +306,80 @@ class Board {
     // draw the ground
     drawLine(c, [20,190], [180,190]);
     // start building the gallows if there's been a bad guess
-    if (badGuesses > 0) {
-      // create the upright
-      // c.strokeStyle = '#A52A2A';
-      drawLine(c, [30,185], [30,10]);
-    }
-    if (badGuesses > 1) {
-      // create the arm of the gallows
-      c.lineTo(150,10);
-      c.stroke();
-    }
-    if (badGuesses > 2) {
-      // c.strokeStyle = 'black';
-      // c.lineWidth = 3;
-      // draw rope
-      drawLine(c, [145,15], [145,30]);
-      // draw head
-      c.beginPath();
-      c.moveTo(160, 45);
-      c.arc(145, 45, 15, 0, (PI/180)*360);
-      c.stroke(); 
-    }
-    if (badGuesses > 3) {
-      // draw body
-      drawLine(c, [145,60], [145,130]);
-    }
-    if (badGuesses > 4) {
-      // draw left arm
-      drawLine(c, [145,80], [110,90]);
-    }
-    if (badGuesses > 5) {
-      // draw right arm
-      drawLine(c, [145,80], [180,90]);
-    }
-    if (badGuesses > 6) {
-      // draw left leg
-      drawLine(c, [145,130], [130,170]);
-    }
-    if (badGuesses > 7) {
-      // draw right leg and end game
-      drawLine(c, [145,130], [160,170]);
-      c.fillText('Game over', 45, 110);
-      placeholdersList[i] = "$letter ";
-      placeholders ='';
-      for (var i=0; i<placeholdersList.length; i++){
-        var symbol = placeholdersList[i];
-        placeholders = "$placeholders $symbol";
+    if (lettresUtilisees.contains(lettreMinuscule)){
+      var stringLettresUtilisees = '';
+      for (var i=0; i<lettresUtilisees.length; i++){
+        stringLettresUtilisees = "$stringLettresUtilisees $lettresUtilisees[i]";
       }
-      document.query('#word').innerHtml = placeholders;
-      // remove the alphabet pad
-      //document.query('#letters').innerHTML = '';
-      // display the correct answer
-      // need to use setTimeout to prevent race condition
-      //  setTimeout(showResult, 200);
-      // increase score of lost games
-      //window.localStorage.setItem('hangmanLose', 1 + int.parse(window.localStorage.getItem('hangmanLose')));
-      // display the score after two seconds
-      //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas());  // coumba
-      //setTimeout(showScore, 2000);
+      //document.query('#lettresUtilisees').innerHtml = lettresUtilisees;
+      if (badGuesses > 0) {
+        // create the upright
+        // c.strokeStyle = '#A52A2A';
+        drawLine(c, [30,185], [30,10]);
+      }
+      if (badGuesses > 1) {
+        // create the arm of the gallows
+        c.lineTo(150,10);
+        c.stroke();
+      }
+      if (badGuesses > 2) {
+        // c.strokeStyle = 'black';
+        // c.lineWidth = 3;
+       // draw rope
+       drawLine(c, [145,15], [145,30]);
+       // draw head
+       c.beginPath();
+       c.moveTo(160, 45);
+       c.arc(145, 45, 15, 0, (PI/180)*360);
+       c.stroke(); 
+     }
+     if (badGuesses > 3) {
+       // draw body
+       drawLine(c, [145,60], [145,130]);
+     }
+     if (badGuesses > 4) {
+       // draw left arm
+       drawLine(c, [145,80], [110,90]);
+     }
+     if (badGuesses > 5) {
+       // draw right arm
+       drawLine(c, [145,80], [180,90]);
+     }
+     if (badGuesses > 6) {
+       // draw left leg
+       drawLine(c, [145,130], [130,170]);
+     }
+     if (badGuesses > 7) {
+       // draw right leg and end game
+       drawLine(c, [145,130], [160,170]);
+       c.fillText('Game over', 45, 110);
+       correctGuesses = wordLength+1; //permet d'empêcher le joueur de gagner quand il a perdu.
+       //empêche les lettres de continuer d'apparaître.
+       for (var i=0; i<abc.length; i++){
+        lettresUtilisees[i]=abc[i];
+       }
+      /* for (var i = 0; i < wordLength; i++) {
+         if (lettre == letter.toLowerCase() && !lettresUtilisees.contains(lettre)) {
+           placeholdersList[i] = "$letter ";
+           placeholders ='';
+           for (var i=0; i<placeholdersList.length; i++){
+             var symbol = placeholdersList[i];
+             placeholders = "$placeholders $symbol";
+           }
+         }
+       }*/
+       //document.query('#word').innerHtml = placeholders;
+       // remove the alphabet pad
+       //document.query('#letters').innerHTML = '';
+       // display the correct answer
+       // need to use setTimeout to prevent race condition
+       //  setTimeout(showResult, 200);
+       // increase score of lost games
+       //window.localStorage.setItem('hangmanLose', 1 + int.parse(window.localStorage.getItem('hangmanLose')));
+       // display the score after two seconds
+       //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas(lettresUtilisees, lettreMinuscule));  // coumba
+       //setTimeout(showScore, 2000);
+     }
     }
     // if the word has been guessed correctly, display message,
     // update score of games won, and then show score after 2 seconds
@@ -365,7 +395,7 @@ class Board {
     //   m = 1 + int.parse(window.localStorage.getItem('hangmanWin');
       //window.localStorage['hangmanWin'] = string.m ;
       //window.localStorage.setItem('hangmanWin', 1 + int.parse(window.localStorage.getItem('hangmanWin')));
-      //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas());  // coumba
+      //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas(lettresUtilisees, lettreMinuscule));  // coumba
       //setTimeout(showScore, 2000);
     }
     else (){
