@@ -260,9 +260,9 @@ class Board {
        // replace the underscore and increase the number of correct guesses
         if (lettreDevinee == letter.toLowerCase()) {
           for (var j=0; j<lettresTrouvees.length; j++){
-            if (lettresTrouvees[j]==null){
-              lettresTrouvees[j]=[lettreMinuscule,i];//pour se souvenir de l'adresse
-              break;
+            if (lettresTrouvees[j]==null){ //trouve le prochain emplacement vide dans lettresTrouvees
+              lettresTrouvees[j]=[lettreDevinee,i];//pour se souvenir de l'adresse
+              break; //sinon tous les emplacement "null" vont se remplir.
             }
 
           }
@@ -275,7 +275,9 @@ class Board {
           lettresUtilisees[i]=lettreMinuscule;
 
           //enleve la lettre des lettres acceptées.
-          lettreDevinee = 0; 
+          //print (i);
+          letterFromWord[i] = "...";
+           
           // redraw the canvas only if all letters have been guessed
           if (correctGuesses == wordLength) {
             //return placeholders;
@@ -287,9 +289,10 @@ class Board {
             //print (lettresTrouvees.length);
             //print (lettresTrouvees[j][0]);
             //print (lettresTrouvees[j][1]);
+            //print (i);
             if (lettresTrouvees[j][1]==i){
               var lettreAPlacer = lettresTrouvees[j][0];
-              placeholdersList[j]=lettreAPlacer;
+              placeholdersList[i]=lettreAPlacer;
             }
           }
         }
@@ -302,7 +305,7 @@ class Board {
         }
      }
     }
-    print (placeholders);
+    //print (placeholders);
     document.query('#word').innerHtml = placeholders;
     // if the guess was incorrect, increment the number of bad
     // guesses and redraw the canvas
