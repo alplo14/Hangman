@@ -12,6 +12,7 @@ class Board {
   var lettreMinuscule;
   var abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   var placeholders;
+  var lettresTrouvees = new List(26);
   
   const num X = 0;
   const num Y = 0;
@@ -53,7 +54,7 @@ class Board {
     correctGuesses = 0;
     wordToGuess = getWord();
     wordLength = wordToGuess.length;
-    lettresUtilisees = new List(wordLength);
+    lettresUtilisees = new List(26);//pour pouvoir contenir l'alphabet complet si nécessaire.
     // create row of underscores the same length as letters to guess
     for (var i = 0; i < wordLength; i++) {
       placeholders += '_ ';
@@ -238,29 +239,41 @@ class Board {
 
   checkLetter(letter, placeholders) {
     //var placeholders = document.query('#word').innerHTML,
+    
     var lettreMinuscule = letter.toLowerCase();
     var wrongGuess = true;
-    print (placeholders);
+   // print (placeholders);
     // split the placeholders into an array
     var placeholdersList = placeholders.split(' ');
-    print (placeholdersList);
+    placeholders ='';
+    //print (placeholdersList);
     var letterFromWord =wordToGuess.split(''); 
+    
+    for (var i = 0; i < wordLength; i++){
+      
+    }
     // loop through the array
-    if (!lettresUtilisees.contains(lettreMinuscule)){
+    if (!lettresUtilisees.contains(lettreMinuscule)){//pour ne pas compter lorsque la lettre a déjà été utilisée.
       for (var i = 0; i < wordLength; i++) {
         var lettreDevinee = letterFromWord[i];
         // if the selected letter matches one in the word to guess,
        // replace the underscore and increase the number of correct guesses
         if (lettreDevinee == letter.toLowerCase()) {
-          placeholdersList[i] = "$letter ";
-          placeholders ='';
-         for (var i=0; i<placeholdersList.length; i++){
-            var symbol = placeholdersList[i];
-            placeholders = "$placeholders $symbol";
+          for (var j=0; j<lettresTrouvees.length; j++){
+            if (lettresTrouvees[j]==null){
+              lettresTrouvees[j]=[lettreMinuscule,i];//pour se souvenir de l'adresse
+              break;
+            }
+
           }
+//          print (lettresTrouvees[j][0]);
+  //        print (lettresTrouvees[j][1]);
+
+
           wrongGuess = false;
           correctGuesses++;
           lettresUtilisees[i]=lettreMinuscule;
+
           //enleve la lettre des lettres acceptées.
           lettreDevinee = 0; 
           // redraw the canvas only if all letters have been guessed
@@ -268,6 +281,24 @@ class Board {
             //return placeholders;
             drawCanvas(lettresUtilisees, lettreMinuscule);
           }
+        }
+        for (var j =0; j<lettresTrouvees.length; j++){//retrouve les lettres dont l'adresse est i.
+          if (lettresTrouvees[j]!=null){
+            //print (lettresTrouvees.length);
+            //print (lettresTrouvees[j][0]);
+            //print (lettresTrouvees[j][1]);
+            if (lettresTrouvees[j][1]==i){
+              var lettreAPlacer = lettresTrouvees[j][0];
+              placeholdersList[j]=lettreAPlacer;
+            }
+          }
+        }
+
+        //placeholdersList[i] = lettresTrouves[i][0];
+        placeholders ='';
+        for (var j=0; j < placeholdersList.length; j++){
+          var symbol = placeholdersList[j];
+          placeholders = "$placeholders $symbol";
         }
      }
     }
