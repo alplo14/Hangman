@@ -311,12 +311,12 @@ class Board {
     // guesses and redraw the canvas
     if (wrongGuess) {
       badGuesses++;
-      for (var i=0; i<lettresUtilisees.length; i++){
+      /*for (var i=0; i<lettresUtilisees.length; i++){
         if (lettresUtilisees == null){
           lettresUtilisees[i]=lettreMinuscule;
           break;
         }
-      }
+      }*/
    // return placeholders;
     
     drawCanvas(lettresUtilisees, lettreMinuscule);
@@ -338,9 +338,9 @@ class Board {
     //c.font = 'bold 24px Optimer, Arial, Helvetica, sans-serif';
     //c.fillStyle = 'red';
     // draw the ground
-    drawLine(c, [20,190], [180,190]);
+    
     // start building the gallows if there's been a bad guess
-    if (lettresUtilisees.contains(lettreMinuscule)){
+    //if (lettresUtilisees.contains(lettreMinuscule)){
       var stringLettresUtilisees = '';
       for (var i=0; i<lettresUtilisees.length; i++){
         stringLettresUtilisees = "$stringLettresUtilisees $lettresUtilisees[i]";
@@ -349,7 +349,14 @@ class Board {
       if (badGuesses > 0) {
         // create the upright
         // c.strokeStyle = '#A52A2A';
+        drawLine(c, [20,190], [180,190]);
         drawLine(c, [30,185], [30,10]);
+        for (var i=0; i<lettresUtilisees.length; i++){
+          if (lettresUtilisees == null){
+            lettresUtilisees[i]=lettreMinuscule;
+            break;
+          }
+        }
       }
       if (badGuesses > 1) {
         // create the arm of the gallows
@@ -413,7 +420,7 @@ class Board {
        // display the score after two seconds
        //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas(lettresUtilisees, lettreMinuscule));  // coumba
        //setTimeout(showScore, 2000);
-     }
+     
     }
     // if the word has been guessed correctly, display message,
     // update score of games won, and then show score after 2 seconds
