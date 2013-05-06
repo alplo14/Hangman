@@ -8,6 +8,7 @@ class Board {
   var wordLength;
   var badGuesses;
   var correctGuesses;
+  var lettresUtilisees;
   
   const num X = 0;
   const num Y = 0;
@@ -29,8 +30,8 @@ class Board {
 
   Board(this.canvas) {
     context = canvas.getContext("2d");
-    window.localStorage['hangmanWin'] = '0';
-    window.localStorage['hangmanLose'] = '0';
+    //window.localStorage['hangmanWin'] = '0';
+    //window.localStorage['hangmanLose'] = '0';
    // window.localStorage.setItem('hangmanWin', 0);   // coumba
   //  window.localStorage.setItem('hangmanLose', 0);  //coumba
     width = canvas.width;
@@ -39,6 +40,7 @@ class Board {
     document.query('#play').onClick.listen((e) {
       newGame();
     });
+
   }
   newGame() {
      var placeholders = '',
@@ -48,6 +50,7 @@ class Board {
     correctGuesses = 0;
     wordToGuess = getWord();
     wordLength = wordToGuess.length;
+    lettresUtilisees = new List(wordLength);
     // create row of underscores the same length as letters to guess
     for (var i = 0; i < wordLength; i++) {
       placeholders += '_ ';
@@ -72,54 +75,211 @@ class Board {
     
 
     //la partie ci-haut n'est plus nécessaire, puisque les boutons sont dans le html. sinon les boutons n'apparaissaient pas correctement dans la zone de jeu, et je crois que ce sera plus facile à gérer comme ça.
-    while(correctGuesses!= wordLength && badGuesses<=7){ //tant que la partie n'est pas perdue ou gagnée
-      document.query('#a').onClick.listen((e){
-        getLetter(a);
-      });
-      document.query('#b').onClick.listen((e){
-       getLetter(b);
-      }); //etc.}
+   /* */ 
+    
     /* document.query('#test').onClick = getLetter(); */ 
     //letters.appendChild(frag);
-    }
-    drawCanvas();
+    catchLetter(placeholders);
+
   }
-  getLetter(letter) {
-    checkLetter(letter); /*Pour savoir c'est quelle lettre, il faut savoir où la personne 
+  
+  catchLetter(placeholders){
+    if(correctGuesses!= wordLength && badGuesses<=7){ //tant que la partie n'est pas perdue ou gagnée
+      document.query('#a').onClick.listen((e){
+        var lettre = "a";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#b').onClick.listen((e){
+        var lettre = "b";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#c').onClick.listen((e){
+        var lettre = "c";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#d').onClick.listen((e){
+        var lettre = "d";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#d').onClick.listen((e){
+        var lettre = "d";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#e').onClick.listen((e){
+        var lettre = "e";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#f').onClick.listen((e){
+        var lettre = "f";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#g').onClick.listen((e){
+        var lettre = "g";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#h').onClick.listen((e){
+        var lettre = "h";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#i').onClick.listen((e){
+        var lettre = "i";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#j').onClick.listen((e){
+        var lettre = "j";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#k').onClick.listen((e){
+        var lettre = "k";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#l').onClick.listen((e){
+        var lettre = "l";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#m').onClick.listen((e){
+        var lettre = "m";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#n').onClick.listen((e){
+        var lettre = "n";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#o').onClick.listen((e){
+        var lettre = "o";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#p').onClick.listen((e){
+        var lettre = "p";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#q').onClick.listen((e){
+        var lettre = "q";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#r').onClick.listen((e){
+        var lettre = "r";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#s').onClick.listen((e){
+        var lettre = "s";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#t').onClick.listen((e){
+        var lettre = "t";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#u').onClick.listen((e){
+        var lettre = "u";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#v').onClick.listen((e){
+        var lettre = "v";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#w').onClick.listen((e){
+        var lettre = "w";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#x').onClick.listen((e){
+        var lettre = "x";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#y').onClick.listen((e){
+        var lettre = "y";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+      document.query('#z').onClick.listen((e){
+        var lettre = "z";
+        checkLetter(lettre, placeholders);
+        drawCanvas();
+      });
+    }
+  }
+  
+  /*/*getLetter(letter, placeholders) {
+    checkLetter(letter, placeholders); Pour savoir c'est quelle lettre, il faut savoir où la personne 
     a cliqué. "This" fait référence à board, et non à l'événement "click".  */
     
-    this.innerHTML = '&nbsp;';
-    this.style.cursor = 'default';
-    this.onclick = null;
-  }
-  checkLetter(letter) {
-    var placeholders = word.innerHTML,
-        wrongGuess = true;
+    //this.innerHTML = '&nbsp;';
+    //this.style.cursor = 'default';
+    //this.onclick = null;
+  }*/
+
+  checkLetter(letter, placeholders) {
+    //var placeholders = document.query('#word').innerHTML,
+    var lettreMinuscule = letter.toLowerCase();
+    var wrongGuess = true;
     // split the placeholders into an array
-    placeholders = placeholders.split('');
+    var placeholdersList = placeholders.split(' ');
+    var letterFromWord =wordToGuess.split(''); 
     // loop through the array
     for (var i = 0; i < wordLength; i++) {
+      var lettre = letterFromWord[i];
       // if the selected letter matches one in the word to guess,
       // replace the underscore and increase the number of correct guesses
-      if (wordToGuess.charAt(i) == letter.toLowerCase()) {
-        placeholders[i] = letter;
+      if (lettre == letter.toLowerCase()) {
+        placeholdersList[i] = "$letter ";
+        placeholders ='';
+        for (var i=0; i<placeholdersList.length; i++){
+          var symbol = placeholdersList[i];
+          placeholders = "$placeholders $symbol";
+        }
         wrongGuess = false;
         correctGuesses++;
+        lettresUtilisees[i]=lettreMinuscule;
+        print (placeholders);
+        //enleve la lettre des lettres acceptées.
+        lettre = 0; 
         // redraw the canvas only if all letters have been guessed
         if (correctGuesses == wordLength) {
           drawCanvas();
         }
       }
     }
+    document.query('#word').innerHtml = placeholders;
     // if the guess was incorrect, increment the number of bad
     // guesses and redraw the canvas
     if (wrongGuess) {
       badGuesses++;
-      drawCanvas();
+      for (var i=0; i<lettresUtilisees.length; i++){
+        if (lettresUtilisees == null){
+          lettresUtilisees[i]=lettreMinuscule;
+          break;
+        }
+      }
+    drawCanvas();
     }
     // convert the array to a string and display it again
-    word.innerHTML = placeholders.join('');
+    //word.innerHTML = placeholdersList.join('');
   }
+  
 
   drawCanvas() {
     var c = canvas.getContext('2d');
@@ -136,69 +296,83 @@ class Board {
       // create the upright
       // c.strokeStyle = '#A52A2A';
       drawLine(c, [30,185], [30,10]);
-      if (badGuesses > 1) {
-        // create the arm of the gallows
-        c.lineTo(150,10);
-        c.stroke();
+    }
+    if (badGuesses > 1) {
+      // create the arm of the gallows
+      c.lineTo(150,10);
+      c.stroke();
+    }
+    if (badGuesses > 2) {
+      // c.strokeStyle = 'black';
+      // c.lineWidth = 3;
+      // draw rope
+      drawLine(c, [145,15], [145,30]);
+      // draw head
+      c.beginPath();
+      c.moveTo(160, 45);
+      c.arc(145, 45, 15, 0, (PI/180)*360);
+      c.stroke(); 
+    }
+    if (badGuesses > 3) {
+      // draw body
+      drawLine(c, [145,60], [145,130]);
+    }
+    if (badGuesses > 4) {
+      // draw left arm
+      drawLine(c, [145,80], [110,90]);
+    }
+    if (badGuesses > 5) {
+      // draw right arm
+      drawLine(c, [145,80], [180,90]);
+    }
+    if (badGuesses > 6) {
+      // draw left leg
+      drawLine(c, [145,130], [130,170]);
+    }
+    if (badGuesses > 7) {
+      // draw right leg and end game
+      drawLine(c, [145,130], [160,170]);
+      c.fillText('Game over', 45, 110);
+      placeholdersList[i] = "$letter ";
+      placeholders ='';
+      for (var i=0; i<placeholdersList.length; i++){
+        var symbol = placeholdersList[i];
+        placeholders = "$placeholders $symbol";
       }
-      if (badGuesses > 2) {
-        // c.strokeStyle = 'black';
-        // c.lineWidth = 3;
-        // draw rope
-        drawLine(c, [145,15], [145,30]);
-        // draw head
-        c.beginPath();
-        c.moveTo(160, 45);
-        c.arc(145, 45, 15, 0, (PI/180)*360);
-        c.stroke(); 
-      }
-      if (badGuesses > 3) {
-        // draw body
-        drawLine(c, [145,60], [145,130]);
-      }
-      if (badGuesses > 4) {
-        // draw left arm
-        drawLine(c, [145,80], [110,90]);
-      }
-      if (badGuesses > 5) {
-        // draw right arm
-        drawLine(c, [145,80], [180,90]);
-      }
-      if (badGuesses > 6) {
-        // draw left leg
-        drawLine(c, [145,130], [130,170]);
-      }
-      if (badGuesses > 7) {
-        // draw right leg and end game
-        drawLine(c, [145,130], [160,170]);
-        c.fillText('Game over', 45, 110);
-        // remove the alphabet pad
-        document.query('#letters').innerHTML = '';
-        // display the correct answer
-        // need to use setTimeout to prevent race condition
-        //  setTimeout(showResult, 200);
-        // increase score of lost games
-        window.localStorage.setItem('hangmanLose', 1 + int.parse(window.localStorage.getItem('hangmanLose')));
-        // display the score after two seconds
-        new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas());  // coumba
-        //setTimeout(showScore, 2000);
-      }
+      document.query('#word').innerHtml = placeholders;
+      // remove the alphabet pad
+      //document.query('#letters').innerHTML = '';
+      // display the correct answer
+      // need to use setTimeout to prevent race condition
+      //  setTimeout(showResult, 200);
+      // increase score of lost games
+      //window.localStorage.setItem('hangmanLose', 1 + int.parse(window.localStorage.getItem('hangmanLose')));
+      // display the score after two seconds
+      //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas());  // coumba
+      //setTimeout(showScore, 2000);
     }
     // if the word has been guessed correctly, display message,
     // update score of games won, and then show score after 2 seconds
     var m;
+    
+    //
+    
     if (correctGuesses == wordLength) {
-      letters.innerHTML = '';
+      //letters.innerHTML = '';
       c.fillText('You won!', 45,110);
       // increase score of won games
       // display score
     //   m = 1 + int.parse(window.localStorage.getItem('hangmanWin');
       //window.localStorage['hangmanWin'] = string.m ;
-      window.localStorage.setItem('hangmanWin', 1 + int.parse(window.localStorage.getItem('hangmanWin')));
-      new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas());  // coumba
+      //window.localStorage.setItem('hangmanWin', 1 + int.parse(window.localStorage.getItem('hangmanWin')));
+      //new Timer.periodic(const Duration(milliseconds: INTERVAL), (t) => drawCanvas());  // coumba
       //setTimeout(showScore, 2000);
     }
+    else (){
+      catchLetter();
+    };
   }
+  
 
   drawLine(context, from, to) {
     context.beginPath();
@@ -214,7 +388,7 @@ class Board {
     return a[j];
   }
   
-}
+
  
  /* void init(var listeMots) {
     
@@ -343,4 +517,5 @@ class Board {
     
   } */
   
-  
+
+}
