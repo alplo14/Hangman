@@ -341,18 +341,15 @@ class Board {
     
     // start building the gallows if there's been a bad guess
     //if (lettresUtilisees.contains(lettreMinuscule)){
-      var stringLettresUtilisees = '';
-      for (var i=0; i<lettresUtilisees.length; i++){
-        stringLettresUtilisees = "$stringLettresUtilisees $lettresUtilisees[i]";
-      }
-      //document.query('#lettresUtilisees').innerHtml = lettresUtilisees;
+
+      
       if (badGuesses > 0) {
         // create the upright
         // c.strokeStyle = '#A52A2A';
         drawLine(c, [20,190], [180,190]);
         drawLine(c, [30,185], [30,10]);
         for (var i=0; i<lettresUtilisees.length; i++){
-          if (lettresUtilisees == null){
+          if (lettresUtilisees[i] == null){
             lettresUtilisees[i]=lettreMinuscule;
             break;
           }
@@ -442,6 +439,14 @@ class Board {
     else (){
       catchLetter();
     };
+    var stringLettresUtilisees = '';
+    for (var i=0; i<lettresUtilisees.length; i++){
+      if (lettresUtilisees[i]!=null){
+        stringLettresUtilisees = "$stringLettresUtilisees $lettresUtilisees[i]";
+      }
+    }
+    
+    document.query('#lettresUtilisees').innerHtml = stringLettresUtilisees;
   }
   
 
